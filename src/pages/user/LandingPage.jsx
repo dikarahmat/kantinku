@@ -39,7 +39,7 @@ export default function LandingPage() {
             </div>
             <h1 className="text-5xl md:text-7xl font-black leading-tight mb-6">
               Pesan Makan,<br />
-              <span className="text-yellow-400" style={{fontFamily:'Georgia,serif',fontStyle:'italic',fontWeight:300}}>Tanpa Antri.</span>
+             <span className="text-yellow-400">Tanpa Antre.</span>
             </h1>
             <p className="text-white/50 text-lg mb-10 leading-relaxed">
               Revolusi makan siang di kantor dan kampus. Nikmati kemudahan memesan menu favorit Anda langsung dari genggaman tanpa harus berdiri lama di barisan.

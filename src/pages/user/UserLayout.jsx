@@ -60,7 +60,7 @@ export default function UserLayout() {
       <main><Outlet /></main>
       <footer className="border-t border-white/5 py-6 mt-20">
         <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
-          <p className="text-white/20 text-sm">Pesan Makan, Tanpa Antri</p>
+          <p className="text-white/20 text-sm">Pesan Makan, Tanpa Antre</p>
           <Link to="/admin/login" className="text-white/15 hover:text-yellow-400/50 text-xs transition-colors">Admin Panel →</Link>
         </div>
       </footer>
