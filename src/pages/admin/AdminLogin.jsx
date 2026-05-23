@@ -1,7 +1,6 @@
 import { useState } from 'react'
-import { Link, useNavigate, Navigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Lock, User, ArrowRight } from 'lucide-react'
-import { Logo } from '../../components/Logo'
 
 export default function AdminLogin() {
   const [u, setU] = useState('')
@@ -10,18 +9,13 @@ export default function AdminLogin() {
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
 
-  // Kalau udah login, langsung redirect
-  if (localStorage.getItem('kk-admin')) {
-    return <Navigate to="/admin/dashboard" replace />
-  }
-
   const handle = (e) => {
     e.preventDefault()
     setLoading(true)
     setTimeout(() => {
       if (u === 'admin' && p === 'admin123') {
         localStorage.setItem('kk-admin', 'true')
-        navigate('/admin/dashboard')
+        navigate('/admin')
       } else {
         setError('Username atau password salah.')
       }
@@ -30,10 +24,10 @@ export default function AdminLogin() {
   }
 
   return (
-    <div className="min-h-screen text-white flex flex-col relative overflow-hidden bg-[#0B0B0B]">
+    <div className="min-h-screen text-white flex flex-col relative overflow-hidden">
       <div className="fixed inset-0 z-0">
-        <img src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=1600&h=900&fit=crop" alt="" className="w-full h-full object-cover opacity-20" />
-        <div className="absolute inset-0 bg-[#0B0B0B]/80" />
+        <img src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=1600&h=900&fit=crop" alt="" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-[#0B0B0B]/82" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0B0B0B]/60 via-transparent to-[#0B0B0B]/80" />
       </div>
 
@@ -45,7 +39,7 @@ export default function AdminLogin() {
 
           <div className="flex items-center gap-3 mb-8">
             <div className="w-11 h-11 bg-yellow-400/10 border border-yellow-400/20 rounded-xl flex items-center justify-center">
-              <Logo size="sm" showText={false} />
+              <img src="/logo.png.png" alt="KantinKu" className="w-7 h-7 object-contain" />
             </div>
             <div>
               <p className="font-bold text-white text-base">KantinKu</p>

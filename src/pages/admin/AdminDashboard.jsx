@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useData } from '../../context/DataContext'
 import { TrendingUp, ShoppingBag, CheckCircle, UtensilsCrossed, ArrowRight, Circle } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 
 const FOOD_IMGS = [
   'https://images.unsplash.com/photo-1512058564366-18510be2db19?w=48&h=48&fit=crop',
@@ -23,11 +24,13 @@ export default function AdminDashboard() {
   const active = orders.filter(o => !['selesai', 'gagal'].includes(o.status))
   const done = orders.filter(o => o.status === 'selesai').length
 
+  const navigate = useNavigate()
+
   const stats = [
-    { label: 'Total Pendapatan', value: `Rp ${(revenue / 1000).toFixed(0)}K`, icon: TrendingUp, color: 'text-yellow-400', bg: 'bg-yellow-400/10 border-yellow-400/20', gold: true },
-    { label: 'Pesanan Aktif', value: active.length, icon: ShoppingBag, color: 'text-blue-400', bg: 'bg-blue-400/10 border-blue-400/20' },
-    { label: 'Selesai Hari Ini', value: done, icon: CheckCircle, color: 'text-green-400', bg: 'bg-green-400/10 border-green-400/20' },
-    { label: 'Menu Tersedia', value: menu.filter(m => m.available).length, icon: UtensilsCrossed, color: 'text-purple-400', bg: 'bg-purple-400/10 border-purple-400/20' },
+    { label: 'Total Pendapatan', value: `Rp ${(revenue / 1000).toFixed(0)}K`, icon: TrendingUp, color: 'text-yellow-400', bg: 'bg-yellow-400/10 border-yellow-400/20', gold: true, link: '/admin/orders' },
+    { label: 'Pesanan Aktif', value: active.length, icon: ShoppingBag, color: 'text-blue-400', bg: 'bg-blue-400/10 border-blue-400/20', link: '/admin/orders' },
+    { label: 'Selesai Hari Ini', value: done, icon: CheckCircle, color: 'text-green-400', bg: 'bg-green-400/10 border-green-400/20', link: '/admin/orders' },
+    { label: 'Menu Tersedia', value: menu.filter(m => m.available).length, icon: UtensilsCrossed, color: 'text-purple-400', bg: 'bg-purple-400/10 border-purple-400/20', link: '/admin/menu' },
   ]
 
   return (
@@ -41,7 +44,8 @@ export default function AdminDashboard() {
       {/* STATS */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         {stats.map(s => (
-          <div key={s.label} className={`bg-[#161616] border rounded-2xl p-5 ${s.gold ? 'border-yellow-400/15 bg-gradient-to-br from-yellow-400/5 to-transparent' : 'border-white/5'}`}>
+          <div key={s.label} onClick={() => navigate(s.link)}
+            className={`bg-[#161616] border rounded-2xl p-5 cursor-pointer hover:scale-[1.02] transition-all ${s.gold ? 'border-yellow-400/15 bg-gradient-to-br from-yellow-400/5 to-transparent hover:border-yellow-400/30' : 'border-white/5 hover:border-white/15'}`}>
             <div className={`w-10 h-10 rounded-xl border flex items-center justify-center mb-4 ${s.bg}`}>
               <s.icon size={18} className={s.color} />
             </div>
@@ -67,7 +71,7 @@ export default function AdminDashboard() {
         {active.length === 0 ? (
           <div className="py-16 text-center text-white/20">
             <ShoppingBag size={32} className="mx-auto mb-3 opacity-50" />
-            <p className="text-sm">Belum ada pesanan aktif</p>
+            <p text-sm>Belum ada pesanan aktif</p>
           </div>
         ) : (
           <div className="overflow-x-auto">

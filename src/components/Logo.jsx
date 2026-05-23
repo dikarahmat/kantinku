@@ -1,40 +1,12 @@
-import React from 'react'
-
-// Kita set default showText = true biar kalau dipanggil biasa langsung muncul teksnya
-export function Logo({ size = 'md', showText = true, className = '' }) {
-  // Mapping ukuran pembungkus logo (gambar)
-  const sizes = {
-    sm: 'w-8 h-8',
-    md: 'w-10 h-10',
-    lg: 'w-14 h-14',
-    xl: 'w-18 h-18'
-  }
-
-  // Mapping ukuran font untuk tulisan KantinKu
-  const textSizes = {
-    sm: 'text-base',
-    md: 'text-xl',
-    lg: 'text-2xl',
-    xl: 'text-3xl'
-  }
-
-  const sizeClass = sizes[size] || size
-  const textSizeClass = textSizes[size] || 'text-xl'
+export function Logo({ size = 'md', showText = true }) {
+  const sizes = { sm: 'w-7 h-7', md: 'w-8 h-8', lg: 'w-10 h-10', xl: 'w-12 h-12' }
+  const textSizes = { sm: 'text-base', md: 'text-lg', lg: 'text-xl', xl: 'text-2xl' }
 
   return (
-    <div className={`flex items-center gap-3 ${className}`}>
-      {/* Wadah Gambar Logo */}
-      <div className={`flex items-center justify-center shrink-0 ${sizeClass}`}>
-        <img 
-          src="/logo.png.png" 
-          alt="Logo KantinKu" 
-          className="w-full h-full object-contain"
-        />
-      </div>
-
-      {/* Tulisan KantinKu */}
+    <div className="flex items-center gap-2">
+      <img src="/logo.png.png" alt="KantinKu" className={`${sizes[size]} object-contain`} />
       {showText && (
-        <span className={`font-bold tracking-wide text-white ${textSizeClass}`}>
+        <span className={`font-bold ${textSizes[size]} text-white`}>
           Kantin<span className="text-yellow-400">Ku</span>
         </span>
       )}

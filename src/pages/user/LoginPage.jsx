@@ -2,8 +2,6 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useData } from '../../context/DataContext'
 import { User, Lock, Eye, EyeOff, ArrowRight } from 'lucide-react'
-// 1. IMPORT KOMPONEN LOGO KITA DI SINI
-import { Logo } from '../../components/Logo'
 
 export default function LoginPage() {
   const { login } = useData()
@@ -32,11 +30,10 @@ export default function LoginPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#0B0B0B]/60 via-transparent to-[#0B0B0B]/80" />
       </div>
 
-      {/* NAVBAR */}
       <nav className="relative z-10 border-b border-white/5 bg-[#0B0B0B]/60 backdrop-blur px-6 md:px-10 h-16 flex items-center justify-between">
-        <Link to="/">
-          {/* 2. GANTI STRUKTUR LAMA PAKE KOMPONEN LOGO */}
-          <Logo size="md" showText={true} />
+        <Link to="/" className="flex items-center gap-2">
+          <img src="/logo.png.png" alt="KantinKu" className="w-7 h-7 object-contain" />
+          <span className="font-bold text-lg">Kantin<span className="text-yellow-400">Ku</span></span>
         </Link>
         <div className="hidden md:flex items-center gap-8 text-sm text-white/40">
           <a href="#">Menu</a><a href="#">Promo</a><a href="#">Tentang Kami</a>
@@ -47,13 +44,11 @@ export default function LoginPage() {
         </div>
       </nav>
 
-      {/* LOGIN BOX CONTAINER */}
       <div className="flex-1 flex items-center justify-center px-4 py-12 relative z-10">
         <div className="w-full max-w-md">
           <div className="text-center mb-8">
-            {/* 3. UBAH DI SINI JUGA BIAR LOGO TENGAH MUNCUL RAPI */}
             <div className="w-16 h-16 bg-[#1A1A1A]/80 backdrop-blur border border-yellow-400/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
-              <Logo size="lg" showText={false} />
+              <img src="/logo.png.png" alt="KantinKu" className="w-10 h-10 object-contain" />
             </div>
             <h1 className="text-3xl font-bold mb-2">Masuk ke <span className="text-yellow-400">KantinKu</span></h1>
             <div className="w-24 h-px bg-gradient-to-r from-transparent via-yellow-400/40 to-transparent mx-auto" />
