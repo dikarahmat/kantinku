@@ -11,7 +11,6 @@ export default function LandingPage() {
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-yellow-400/4 rounded-full blur-[120px]" />
       </div>
 
-      {/* NAVBAR */}
       <nav className="sticky top-0 z-50 bg-[#0B0B0B]/90 backdrop-blur border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
           <Logo size="md" />
@@ -28,30 +27,31 @@ export default function LandingPage() {
         </div>
       </nav>
 
-      {/* HERO */}
       <section className="relative min-h-[90vh] flex items-center">
         <div className="absolute inset-0 overflow-hidden">
           <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1600&h=900&fit=crop" alt="" className="w-full h-full object-cover opacity-15" />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0B0B0B]/70 via-[#0B0B0B]/40 to-[#0B0B0B]" />
         </div>
-        <div className="relative max-w-7xl mx-auto px-6 md:px-10 py-24 max-w-2xl">
-          <div className="inline-flex items-center gap-2 bg-yellow-400/10 border border-yellow-400/20 text-yellow-400 text-xs font-semibold px-3 py-1.5 rounded-full mb-8">
-            <Zap size={11} /> Pesan Sekarang, Makan Lebih Cepat
-          </div>
-          <h1 className="text-5xl md:text-7xl font-black leading-tight mb-6">
-            Pesan Makan,<br />
-            <span className="text-yellow-400" style={{fontFamily:'Georgia,serif',fontStyle:'italic',fontWeight:300}}>Tanpa Antri.</span>
-          </h1>
-          <p className="text-white/50 text-lg mb-10 leading-relaxed max-w-lg">
-            Revolusi makan siang di kantor dan kampus. Nikmati kemudahan memesan menu favorit Anda langsung dari genggaman tanpa harus berdiri lama di barisan.
-          </p>
-          <div className="flex items-center gap-4 flex-wrap">
-            <Link to="/login" className="flex items-center gap-2 bg-yellow-400 hover:bg-yellow-300 text-black font-bold px-8 py-4 rounded-full transition-all hover:scale-105 shadow-[0_0_24px_rgba(250,204,21,0.3)] text-base">
-              Mulai Pesan Sekarang <ArrowRight size={16} />
-            </Link>
-            <button onClick={() => scrollTo('menu-section')} className="flex items-center gap-2 border border-white/15 hover:border-white/30 text-white/60 hover:text-white font-medium px-7 py-4 rounded-full transition-all text-base">
-              Lihat Menu Hari Ini
-            </button>
+        <div className="relative w-full max-w-7xl mx-auto px-6 md:px-10 py-24">
+          <div className="max-w-2xl">
+            <div className="inline-flex items-center gap-2 bg-yellow-400/10 border border-yellow-400/20 text-yellow-400 text-xs font-semibold px-3 py-1.5 rounded-full mb-8">
+              <Zap size={11} /> Pesan Sekarang, Makan Lebih Cepat
+            </div>
+            <h1 className="text-5xl md:text-7xl font-black leading-tight mb-6">
+              Pesan Makan,<br />
+              <span className="text-yellow-400" style={{fontFamily:'Georgia,serif',fontStyle:'italic',fontWeight:300}}>Tanpa Antri.</span>
+            </h1>
+            <p className="text-white/50 text-lg mb-10 leading-relaxed">
+              Revolusi makan siang di kantor dan kampus. Nikmati kemudahan memesan menu favorit Anda langsung dari genggaman tanpa harus berdiri lama di barisan.
+            </p>
+            <div className="flex items-center gap-4 flex-wrap">
+              <Link to="/login" className="flex items-center gap-2 bg-yellow-400 hover:bg-yellow-300 text-black font-bold px-8 py-4 rounded-full transition-all hover:scale-105 shadow-[0_0_24px_rgba(250,204,21,0.3)] text-base">
+                Mulai Pesan Sekarang <ArrowRight size={16} />
+              </Link>
+              <button onClick={() => scrollTo('menu-section')} className="flex items-center gap-2 border border-white/15 hover:border-white/30 text-white/60 hover:text-white font-medium px-7 py-4 rounded-full transition-all text-base">
+                Lihat Menu Hari Ini
+              </button>
+            </div>
           </div>
         </div>
         <button onClick={() => scrollTo('features')} className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/20 hover:text-white/50 transition-colors animate-bounce">
@@ -59,7 +59,6 @@ export default function LandingPage() {
         </button>
       </section>
 
-      {/* FEATURES */}
       <section id="features" className="py-24 max-w-7xl mx-auto px-6 md:px-10">
         <p className="text-yellow-400/60 text-xs font-bold uppercase tracking-widest mb-3">Kenapa KantinKu?</p>
         <h2 className="text-3xl md:text-4xl font-bold mb-16">Fitur Unggulan</h2>
@@ -80,7 +79,6 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* MENU SECTION */}
       <section id="menu-section" className="py-24 bg-[#0F0F0F]">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <p className="text-yellow-400/60 text-xs font-bold uppercase tracking-widest mb-3">Menu Populer</p>
@@ -109,7 +107,6 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* HOW IT WORKS */}
       <section id="how-it-works" className="py-24 max-w-7xl mx-auto px-6 md:px-10">
         <p className="text-yellow-400/60 text-xs font-bold uppercase tracking-widest mb-3">Cara Kerja</p>
         <h2 className="text-3xl md:text-4xl font-bold mb-16">Mudah dalam 3 Langkah</h2>
@@ -128,7 +125,6 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* APP SECTION */}
       <section id="app-section" className="py-24 bg-[#0F0F0F]">
         <div className="max-w-7xl mx-auto px-6 md:px-10 text-center">
           <p className="text-yellow-400/60 text-xs font-bold uppercase tracking-widest mb-3">Akses Mudah</p>
